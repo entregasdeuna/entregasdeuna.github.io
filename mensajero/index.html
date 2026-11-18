@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entregas de Una! – Mensajeros</title>
+<!-- Ícono y nombre para la pantalla de inicio -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="../iconos/favicon.png">
+<link rel="apple-touch-icon" href="../iconos/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mensajeros EDU">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#ffffff">
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#fff;overflow:hidden}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
+  #cargando{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+            font-family:Arial,sans-serif;color:#6e6e6c;background:#fff;transition:opacity .3s}
+  #cargando img{width:160px;height:160px;margin-bottom:14px}
+  #cargando a{margin-top:18px;color:#3f6fb8;font-size:14px}
+</style>
+</head>
+<body>
+<div id="cargando">
+  <img src="../iconos/icono-512.png" alt="Entregas de Una!">
+  <div>Cargando…</div>
+  <a id="directo" href="https://script.google.com/macros/s/AKfycbyLaoVaP13o14-ZxsZ8-2BQemFtrGxoZ6tG6pbC_etOFe_wSQBLH6vXwzA5UPZe82s/exec?v=mensajero" target="_top" style="display:none">¿No carga? Toca aquí para abrirla directamente</a>
+</div>
+<iframe id="app" src="https://script.google.com/macros/s/AKfycbyLaoVaP13o14-ZxsZ8-2BQemFtrGxoZ6tG6pbC_etOFe_wSQBLH6vXwzA5UPZe82s/exec?v=mensajero" title="Entregas de Una! – Mensajeros" allow="screen-wake-lock; clipboard-write; autoplay"></iframe>
+<script>
+  // Mostrar la app cuando cargue; si tarda mucho, ofrecer abrirla directamente
+  var f=document.getElementById('app'), c=document.getElementById('cargando');
+  f.addEventListener('load',function(){ c.style.opacity=0; setTimeout(function(){c.style.display='none';},300); });
+  setTimeout(function(){ document.getElementById('directo').style.display='block'; }, 8000);
+</script>
+</body>
+</html>
